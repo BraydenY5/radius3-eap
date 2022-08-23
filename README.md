@@ -11,7 +11,7 @@ How to use:
 1.1 Login your Rocky-Linux 9 server
 
 1.2 Install git and clone the project 
-yum -y install git && git clone https://xxx.yyy
+yum -y install git && git clone https://github.com/BraydenY5/radius3-eap.git
 
 1.3 Use 127.0.0.1 setting up the Freeradius locally
 cd radius3-eap && source ./install_radius3.sh 127.0.0.1
@@ -25,7 +25,7 @@ curl https://auth.nas.org/ca.pem
 2.1 Login your server
 
 2.2 Install git and clone the project 
-yum -y install git && git clone https://xxx.yyy
+yum -y install git && git clone https://github.com/BraydenY5/radius3-eap.git
 
 2.3 Use 3.45.56.89 setting up the Freeradius remotely
 cd radius3-eap && source ./install_radius3.sh 3.45.56.89
