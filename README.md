@@ -2,7 +2,7 @@
 
 A simple Freeradius authentication service with PEAP+Mschap V2 method.
 
-This project was written to make it easier for home users to set up Freeradius servers using the more secure PEAP+MSchapV2 technology.
+This Ansible playbook was written to make it easier for home users to set up Freeradius servers using the more secure PEAP+MSchapV2 technology.
 
 This project was written and tested for Rocky-Linux 9 only.
 
@@ -23,16 +23,16 @@ How to use:
 yum -y install git && git clone https://github.com/BraydenY5/radius3-eap.git
 
 
-1.3 Use 127.0.0.1 setting up the Freeradius locally
+1.3 Use 127.0.0.1 setting up the Freeradius server locally
 
 cd radius3-eap && source ./install_radius3.sh 127.0.0.1
 
 
 1.4 Get ca.crl and ca.pem for setting your device
 
-curl https://auth.nas.org/ca.crl
+curl http://auth.nas.org/ca.crl
 
-curl https://auth.nas.org/ca.pem
+curl http://auth.nas.org/ca.pem
 
 
 
@@ -42,7 +42,7 @@ curl https://auth.nas.org/ca.pem
 --------------------
 2 Install the Freeradius server remotely
 
-2.1 Login your server
+2.1 Log in your server
 
 
 2.2 Install git and clone the project 
@@ -50,7 +50,7 @@ curl https://auth.nas.org/ca.pem
 yum -y install git && git clone https://github.com/BraydenY5/radius3-eap.git
 
 
-2.3 Use 3.45.56.89 setting up the Freeradius remotely
+2.3 Use the server 23.45.56.89 setting up the Freeradius server remotely
 
 cd radius3-eap && source ./install_radius3.sh 3.45.56.89
 
@@ -83,3 +83,10 @@ rad_useradd todd
 2 Remove a user
 
 rad_userdel todd
+
+
+
+
+And also welcome guys who come from Discovery-forum with dishes.
+
+欢迎 来自D版带着菜 的小伙伴们。
