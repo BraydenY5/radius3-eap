@@ -1,0 +1,8 @@
+---
+  - name: Deploy a configuration to the server
+    copy:
+      src: "files/{{ conf_file }}"
+      dest: "{{ remote_path }}/{{ conf_file }}"
+      group: "{{ s_group }}" 
+      owner: "{{ s_owner }}"
+      mode: "{{ s_mode }}"

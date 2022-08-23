@@ -1,0 +1,8 @@
+---
+- name: Deploy a template to the dest
+  template:
+    src: "templates/{{ conf_file }}" 
+    dest: "{{ remote_path }}/{{ conf_file }}"
+    owner: "{{ t_owner }}"
+    group: "{{ t_group }}"
+    mode: "{{ t_mode }}"

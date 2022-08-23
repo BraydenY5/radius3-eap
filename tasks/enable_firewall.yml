@@ -1,0 +1,28 @@
+---
+- name: disable firewalld
+  ansible.builtin.systemd:
+    name: firewalld
+    state: stopped
+    enabled: no
+- name: transport firewall rules 
+  vars:
+    conf_file: firewall_rules.sh
+    remote_path: /etc
+    s_group: root
+    s_owner: root
+    s_mode: 0750
+  import_tasks: tasks/deployAfile.yml
+    
+- name: install and start iptables-service 
+  vars:
+    package: iptables-nft-services
+    service: iptables.service
+  import_tasks: tasks/deploy_and_enable.yml
+
+- name: start ip6tables service too
+  vars:
+    service: ip6tables.service
+  import_tasks: tasks/restartAsvc.yml
+
+- name: setup the firewall rules
+  shell: bash /etc/firewall_rules.sh

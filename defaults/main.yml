@@ -1,0 +1,46 @@
+---
+# defaults file for radius3-eap
+aaa_server_name: auth.nas.org
+EAP_PASSWORD_SERVER: 'GVudGlhbGx5IG5'
+clients_secret: "3JnIHsKIwlp"
+george_passwd: "vYnNvi49b8i1"
+package: freeradius
+service: radiusd
+remote_path: '/etc/raddb/certs'
+t_owner: 'root'
+t_group: 'radiusd'
+t_mode: 0640
+certs_files:
+  - 01.pem  
+  - bootstrap  
+  - ca.crl 
+  - ca.key 
+  - client.cnf 
+  - client.csr 
+  - client@nas.org.pem 
+  - client.pem 
+  - index.txt     
+  - index.txt.attr.old 
+  - inner-server.cnf 
+  - passwords.mk 
+  - serial    
+  - server.cnf 
+  - server.csr 
+  - server.p12 
+  - xpextensions
+  - 02.pem 
+  - ca.cnf    
+  - ca.der 
+  - ca.pem 
+  - client.crt 
+  - client.key 
+  - client.p12        
+  - dh         
+  - index.txt.attr 
+  - index.txt.old     
+  - Makefile        
+  - README       
+  - serial.old 
+  - server.crt 
+  - server.key 
+  - server.pem

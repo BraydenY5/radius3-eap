@@ -1,0 +1,19 @@
+---
+- name: Set the TimeZone
+  community.general.timezone:
+    name: UTC
+- name: ensure chronyd is running
+  vars:
+    - package: chrony
+    - service: chronyd
+  import_tasks: tasks/deploy_and_enable.yml
+- name: Enable NTP for the intranet devices
+  ansible.builtin.blockinfile:
+    path: /etc/chrony.conf
+    block: |
+      allow 192.168/16
+      allow 172.16/12
+      allow 10/8
+      bindcmdaddress 0.0.0.0
+      bindcmdaddress 127.0.0.1
+      bindcmdaddress ::1

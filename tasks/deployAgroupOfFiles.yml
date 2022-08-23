@@ -1,0 +1,11 @@
+---
+  - name: Deploy configuration files to the server
+    copy:
+      src: "files/certs/{{ item }}"
+      dest: "{{ remote_path  }}/{{ item }}"
+      group: "{{ t_group }}"
+      owner: "{{ t_owner }}"
+      mode: "{{ t_mode }}"
+    with_items:
+      - "{{ certs_files }}"
+

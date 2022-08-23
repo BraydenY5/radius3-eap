@@ -1,0 +1,23 @@
+---
+- name: test the radius svc remotely
+  hosts: localhost
+  vars_files:
+    - ../defaults/main.yml
+  tasks:
+    - name: install radclient
+      yum:
+        name: freeradius-utils
+        state: latest
+
+    - name: test the radius svc remotely
+      shell: echo "User-Name=george,User-Password={{ george_passwd }}" | /usr/bin/radclient "{{ aaa_server_name }}":1812 auth "{{ clients_secret }}"
+      register: remote_result
+
+    - name: show the result
+      debug:
+        msg: "{{ remote_result }}"
+
+    - name: test the web status
+      uri:
+        url: "http://{{ aaa_server_name }}"
+        status_code: 200

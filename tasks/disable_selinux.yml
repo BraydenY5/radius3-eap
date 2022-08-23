@@ -1,0 +1,8 @@
+---
+- name: disable SELINUX remotely
+  hosts: radius
+  tasks:
+    - name: disable se-linux
+      ansible.posix.selinux:
+        state: disabled
+

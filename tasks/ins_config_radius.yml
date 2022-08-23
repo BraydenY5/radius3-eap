@@ -1,0 +1,61 @@
+---
+  - name: Install the {{ package }} package
+    import_tasks: tasks/installApackage.yml
+
+  - name: Transport files 
+    import_tasks: tasks/deployAgroupOfFiles.yml
+  - name: certs 
+    file:
+      dest: "{{ remote_path }}"
+      owner: "{{ t_owner }}"
+      group: "{{ t_group }}"
+      mode: 0750
+
+  - name: Deploy radb mschap configuration file
+    vars:
+      - conf_file: mschap
+      - remote_path: "/etc/raddb/mods-available"
+      - s_group: radiusd
+      - s_owner: root
+      - s_mode: 0640
+    import_tasks: tasks/deployAfile.yml
+
+  - name: Deploy radb default configuration file
+    vars:
+      - conf_file: default
+      - remote_path: "/etc/raddb/sites-available"
+      - s_group: radiusd
+      - s_owner: root
+      - s_mode: 0640
+    import_tasks: tasks/deployAfile.yml
+
+  - name: Deploy radb eap configuration file
+    vars:
+      - conf_file: eap
+      - remote_path: "/etc/raddb/mods-available"
+      - t_group: radiusd
+      - t_owner: root
+      - t_mode: 0640
+    import_tasks: tasks/deploy_a_template.yml
+
+
+  - name: Deploy radb clients.conf configuration file
+    vars:
+      - conf_file: clients.conf
+      - remote_path: "/etc/raddb"
+      - s_group: radiusd
+      - s_owner: root
+      - s_mode: 0640
+    import_tasks: tasks/deploy_a_template.yml
+
+  - name: Create a testing user
+    lineinfile:
+      path: /etc/raddb/users
+      line: 'george Cleartext-Password := "{{ george_passwd }}"'
+      state: present
+
+  - name: Restart the {{ service }}service 
+    import_tasks: tasks/restartAsvc.yml
+
+  - name: Transport scripts to /root/bin
+    import_tasks: tasks/transport_scripts.yml

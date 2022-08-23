@@ -1,0 +1,3 @@
+---
+- name: Test for remote login as an Access Ponit(AP)
+  import_tasks: tests/remote_1812.yml

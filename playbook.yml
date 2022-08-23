@@ -1,0 +1,6 @@
+---
+- name: use the eap role
+  hosts: radius
+  become: true
+  roles:
+    - radius3-eap

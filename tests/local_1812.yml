@@ -1,0 +1,14 @@
+---
+- name: install radclient
+  yum:
+    name: freeradius-utils
+    state: latest
+
+- name: test loging-in on the server
+  shell: echo "User-Name=george,User-Password={{ george_passwd }}" | /usr/bin/radclient localhost:1812 auth testing123
+  register: local_result
+
+- name: Show the result on the server
+  debug:
+    msg: "{{  local_result }}"
+

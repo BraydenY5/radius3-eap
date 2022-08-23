@@ -1,0 +1,49 @@
+---
+- name:  Ensure running on a correct OS
+  assert:
+    that:
+       - "ansible_distribution == 'Rocky'"
+       - "ansible_distribution_major_version == '9'"
+    fail_msg: "This script was wrote for Rocky Linux 9 only."
+    success_msg: "We are good to go now...."
+
+- name: Set UTC as defalt timezone
+  import_tasks: tasks/set_tz2utc.yml
+
+#- name: disable se-linux
+#  ansible.posix.selinux:
+#    state: disabled
+
+- name: Set hostname
+  hostname:
+    name: "{{  aaa_server_name }}"
+
+- name:  Put an IP and hostname in hosts
+  lineinfile:
+    dest: /etc/hosts
+    line: "{{ ansible_default_ipv4.address }} {{ aaa_server_name }}" 
+
+- name: Add the IP and hostname in local hosts
+  local_action: shell echo {{ ansible_all_ipv4_addresses[0] }} {{ aaa_server_name }} >> /etc/hosts
+
+- name: Install rng service
+  vars:
+    package: rng-tools
+    service: rngd
+  import_tasks: tasks/deploy_and_enable.yml
+
+- name: Upgrade OS
+  import_tasks: tasks/upgrade.yml
+
+- name: Install radiusd
+  import_tasks: tasks/ins_config_radius.yml
+
+- name: Deploy the firewall simple rules 
+  import_tasks: tasks/enable_firewall.yml  
+
+- name: Deploy and config the nginx
+  import_tasks: tasks/expose_crl.yml
+      
+- name: Test the radius server locally
+  import_tasks: tests/local_1812.yml
+                                            

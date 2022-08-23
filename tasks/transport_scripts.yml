@@ -1,0 +1,25 @@
+---
+- name: Create a bin directory
+  file:
+    dest: /root/bin
+    mode: 0750
+    state: directory
+
+- name: Transport rad_useradd
+  vars:
+    - conf_file: rad_useradd
+    - remote_path: "/root/bin"
+    - s_group: root
+    - s_owner: root
+    - s_mode: 0750
+  import_tasks: tasks/deployAfile.yml
+
+- name: Transport rad_userdel
+  vars:
+    - conf_file: rad_userdel
+    - remote_path: "/root/bin"
+    - s_group: root
+    - s_owner: root
+    - s_mode: 0750
+  import_tasks: tasks/deployAfile.yml
+

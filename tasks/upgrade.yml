@@ -1,0 +1,9 @@
+---
+  - name: Upgrade all packages
+    yum:
+      name: '*'
+      state: latest
+
+#  - name: Reboot OS
+#    reboot:
+#      reboot_timeout: 300

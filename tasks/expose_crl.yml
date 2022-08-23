@@ -1,0 +1,32 @@
+---
+- name: Install Nginx
+  vars:
+    package: nginx
+    service: nginx
+  import_tasks: tasks/deploy_and_enable.yml
+
+- name: Install rsync
+  vars: 
+    package: rsync
+  import_tasks: tasks/installApackage.yml
+
+- name: Create a webroot directory
+  file:
+    dest: /usr/share/nginx/certs
+    mode: 0755
+    state: directory
+
+- name: Sync ca-files to the webroot
+  shell: rsync -a  /etc/raddb/certs/{ca.crl,ca.der,ca.pem} /usr/share/nginx/certs/ && chmod 644 /usr/share/nginx/certs/ca*
+
+- name: Deploy the vhost template
+  template:
+    src: templates/nginx_vhost.conf
+    dest: /etc/nginx/conf.d/{{ aaa_server_name }}.conf
+    mode: 0644
+
+- name: Restart the nginx 
+  vars:
+    service: nginx
+  import_tasks: tasks/restartAsvc.yml
+
