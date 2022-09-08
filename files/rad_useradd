@@ -1,0 +1,40 @@
+#!/usr/bin/bash
+############################################################################
+# Author: Brayden Y.                   
+# Email: braydeny050@gmail.com        
+# Last modified: 2022-08-22 1:21AM    
+# Filename: rad_user                  
+# Decription:  A simple script to add a Freeradius user			  
+# License: 
+# Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
+#
+# https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en	  
+###########################################################################
+
+if [ $# -eq 0 ]; 
+then
+	echo -e "\tNo argument!\n"
+	echo "Use: 'rad_useradd username' to add a Freeradius user with a random password"
+	exit 1
+fi
+
+usersConf='/etc/raddb/users'
+if
+        grep -w "$1"  $usersConf >/dev/null
+then
+
+        echo -e "\n\tThe username $1 has existed!\n\n"
+        echo -e  "You can find all users' info in $usersConf."
+	exit 1
+else
+	genApass=`< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c18`
+	echo "$1  Cleartext-Password := \"$genApass\" " >> $usersConf
+
+	systemctl reload radiusd >>/dev/null
+	echo -e "\n\tThe username $1 has been created!\n"
+	echo -e "\tThe password of $1 is: $genApass \n\n"
+	echo -e "Use:\n"
+	echo -e "echo \"User-Name=$1,User-Password=$genApass\" | /usr/bin/radclient localhost:1812 auth testing123 \n"
+	echo -e  "to make sure you are logged in correctly locally.\n"
+	echo -e  "You can find all users' info in $usersConf. The remote connection's `grep secret /etc/raddb/clients.conf|tail -n1`"
+ fi

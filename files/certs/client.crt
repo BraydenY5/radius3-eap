@@ -1,0 +1,84 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 2 (0x2)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=CA, ST=Ontario, L=Waterloo, O=Brayden DevOps Inc./emailAddress=braydeny050@gmail.com, CN=Certificate_Authority
+        Validity
+            Not Before: Aug 17 05:31:15 2022 GMT
+            Not After : Aug 14 05:31:15 2032 GMT
+        Subject: C=CA, ST=Ontario, O=Brayden DevOps Inc., CN=client/emailAddress=client@nas.org
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:d1:e1:16:13:6a:75:32:fa:1b:58:d2:65:e3:58:
+                    86:1a:fa:2f:7a:1c:0c:92:c8:99:a0:b6:f3:61:59:
+                    f9:bc:c0:c8:83:0e:eb:c2:f4:ed:9a:c2:5c:1e:2a:
+                    d0:96:04:30:0d:84:b2:44:fc:c9:ae:0f:65:36:c5:
+                    dd:06:19:7d:a5:f5:76:9d:b9:0d:84:14:89:6f:0e:
+                    08:11:74:bb:04:2f:1d:7d:b1:bd:fb:ee:ad:88:e3:
+                    d1:14:f0:b6:04:66:3d:ce:b8:bb:46:ce:3d:b9:b5:
+                    86:60:fb:d7:81:de:9d:8f:b1:be:1f:e5:77:a6:b2:
+                    92:8e:97:80:a7:f5:67:89:f9:57:dd:b3:b1:8c:2c:
+                    52:bb:6c:8b:88:1f:09:fa:ef:a3:f3:b2:3e:3c:ea:
+                    98:51:26:67:9e:9d:d6:f9:f5:33:fa:57:9a:58:1a:
+                    4b:78:67:57:ea:8e:1d:de:f5:03:a4:fc:f8:74:6e:
+                    a2:fe:af:7a:0a:be:7a:23:7b:27:b2:30:ef:2a:8e:
+                    aa:1e:bd:c0:5e:6b:ff:38:a9:17:02:9c:78:aa:ec:
+                    55:ac:98:b6:00:d8:ec:3d:0b:5e:49:82:71:93:c6:
+                    25:ee:a8:88:04:4f:6a:90:83:02:ec:fa:78:bd:44:
+                    e4:de:b9:6d:6f:b4:40:ab:4b:2e:ab:1f:b1:8b:c2:
+                    1b:6b
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Extended Key Usage: 
+                TLS Web Client Authentication
+            X509v3 CRL Distribution Points: 
+                Full Name:
+                  URI:http://auth.nas.org/ca.crl
+            X509v3 Subject Key Identifier: 
+                47:82:EA:1D:5D:AE:94:A9:2D:19:EF:1D:86:D2:75:34:7E:8D:63:6E
+            X509v3 Authority Key Identifier: 
+                C2:41:6C:5D:58:7E:D6:A8:24:03:03:31:DB:EB:D3:49:F8:C0:14:16
+    Signature Algorithm: sha256WithRSAEncryption
+    Signature Value:
+        36:b1:f8:6d:d9:a8:9e:1a:98:f9:56:39:66:56:5f:2a:4d:70:
+        52:06:3c:59:8e:0c:37:49:e2:76:5f:9a:aa:a5:80:9d:a0:87:
+        54:72:ee:fe:14:9d:fa:3a:2d:ed:02:e6:85:58:a2:b8:e7:8d:
+        ac:8a:fc:25:b5:2b:64:78:fc:f0:b0:67:0d:75:d1:76:c0:06:
+        e5:87:a2:33:8c:f4:dc:04:45:43:81:21:67:ee:76:7d:08:cc:
+        72:0c:f2:50:3d:44:e4:4c:50:2c:45:dc:0c:ae:bf:fd:ae:f8:
+        d0:0e:e6:d4:81:50:56:b4:17:0a:f0:d1:21:92:22:aa:ec:be:
+        df:23:45:e1:ea:d5:3f:2d:f6:dc:ac:f1:bc:9a:8d:bc:0b:cd:
+        80:4d:b6:9f:54:f5:c6:4e:0c:1a:7a:0d:fd:c0:65:33:a1:b4:
+        de:90:13:e0:52:59:41:04:fd:17:20:54:b1:ca:8a:57:91:a6:
+        be:11:4b:4e:1c:b6:91:5b:bc:68:18:a8:12:bb:15:7b:af:fb:
+        a9:ee:d7:fa:35:5e:01:07:b4:99:52:89:c1:32:f9:c2:08:86:
+        71:f2:1f:93:9a:43:59:7f:3b:6a:64:05:e9:ef:71:6c:dc:8d:
+        61:d8:f1:46:6d:bb:56:71:4b:d1:3a:36:af:8c:1e:f0:01:e7:
+        e7:2d:e0:c7
+-----BEGIN CERTIFICATE-----
+MIIEBTCCAu2gAwIBAgIBAjANBgkqhkiG9w0BAQsFADCBljELMAkGA1UEBhMCQ0Ex
+EDAOBgNVBAgMB09udGFyaW8xETAPBgNVBAcMCFdhdGVybG9vMRwwGgYDVQQKDBNC
+cmF5ZGVuIERldk9wcyBJbmMuMSQwIgYJKoZIhvcNAQkBFhVicmF5ZGVueTA1MEBn
+bWFpbC5jb20xHjAcBgNVBAMMFUNlcnRpZmljYXRlX0F1dGhvcml0eTAeFw0yMjA4
+MTcwNTMxMTVaFw0zMjA4MTQwNTMxMTVaMG0xCzAJBgNVBAYTAkNBMRAwDgYDVQQI
+DAdPbnRhcmlvMRwwGgYDVQQKDBNCcmF5ZGVuIERldk9wcyBJbmMuMQ8wDQYDVQQD
+DAZjbGllbnQxHTAbBgkqhkiG9w0BCQEWDmNsaWVudEBuYXMub3JnMIIBIjANBgkq
+hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0eEWE2p1MvobWNJl41iGGvovehwMksiZ
+oLbzYVn5vMDIgw7rwvTtmsJcHirQlgQwDYSyRPzJrg9lNsXdBhl9pfV2nbkNhBSJ
+bw4IEXS7BC8dfbG9++6tiOPRFPC2BGY9zri7Rs49ubWGYPvXgd6dj7G+H+V3prKS
+jpeAp/VniflX3bOxjCxSu2yLiB8J+u+j87I+POqYUSZnnp3W+fUz+leaWBpLeGdX
+6o4d3vUDpPz4dG6i/q96Cr56I3snsjDvKo6qHr3AXmv/OKkXApx4quxVrJi2ANjs
+PQteSYJxk8Yl7qiIBE9qkIMC7Pp4vUTk3rltb7RAq0suqx+xi8IbawIDAQABo4GF
+MIGCMBMGA1UdJQQMMAoGCCsGAQUFBwMCMCsGA1UdHwQkMCIwIKAeoByGGmh0dHA6
+Ly9hdXRoLm5hcy5vcmcvY2EuY3JsMB0GA1UdDgQWBBRHguodXa6UqS0Z7x2G0nU0
+fo1jbjAfBgNVHSMEGDAWgBTCQWxdWH7WqCQDAzHb69NJ+MAUFjANBgkqhkiG9w0B
+AQsFAAOCAQEANrH4bdmonhqY+VY5ZlZfKk1wUgY8WY4MN0nidl+aqqWAnaCHVHLu
+/hSd+jot7QLmhViiuOeNrIr8JbUrZHj88LBnDXXRdsAG5YeiM4z03ARFQ4EhZ+52
+fQjMcgzyUD1E5ExQLEXcDK6//a740A7m1IFQVrQXCvDRIZIiquy+3yNF4erVPy32
+3KzxvJqNvAvNgE22n1T1xk4MGnoN/cBlM6G03pAT4FJZQQT9FyBUscqKV5GmvhFL
+Thy2kVu8aBioErsVe6/7qe7X+jVeAQe0mVKJwTL5wgiGcfIfk5pDWX87amQF6e9x
+bNyNYdjxRm27VnFL0To2r4we8AHn5y3gxw==
+-----END CERTIFICATE-----

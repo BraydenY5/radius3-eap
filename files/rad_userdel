@@ -1,0 +1,29 @@
+#!/usr/bin/bash
+############################################################################
+# Author: Brayden Y.                   
+# Email: braydeny050@gmail.com        
+# Last modified: 2022-08-22 1:21AM    
+# Filename: rad_user                  
+# Decription:  A simple script to delete a Freeradius user			  
+# 
+# License: 
+# Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
+# https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en	  
+###########################################################################
+if [ $# -eq 0 ]; 
+then
+	echo -e "\tNo argument!\n"
+	echo "Use: 'rad_userdel username' to delete an existing Freeradius user"
+	exit 1
+fi
+usersConf='/etc/raddb/users'
+if
+	grep -w "$1"  $usersConf >/dev/null
+then
+	sed -i "/$1/d" $usersConf
+	systemctl reload radiusd >>/dev/null
+	echo -e "\n\tThe username $1 has been removed!\n\n"
+else
+	echo -e "\n\tThe username $1 does not exist!\n\n"
+	echo -e  "You can find all users' info in $usersConf."
+fi
